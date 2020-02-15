@@ -76,7 +76,8 @@ export class PagesMenu {
         icon: 'pie-chart-outline',
         children: [
           {
-            title: 'Data'
+            title: 'Country',
+            link: '/pages/admin-dashboard/country'
           }
 
         ]
@@ -153,32 +154,32 @@ export class PagesMenu {
       //     },
       //   ],
       // },
-      // {
-      //   title: 'Modal & Overlays',
-      //   icon: 'browser-outline',
-      //   children: [
-      //     {
-      //       title: 'Dialog',
-      //       link: '/pages/modal-overlays/dialog',
-      //     },
-      //     {
-      //       title: 'Window',
-      //       link: '/pages/modal-overlays/window',
-      //     },
-      //     {
-      //       title: 'Popover',
-      //       link: '/pages/modal-overlays/popover',
-      //     },
-      //     {
-      //       title: 'Toastr',
-      //       link: '/pages/modal-overlays/toastr',
-      //     },
-      //     {
-      //       title: 'Tooltip',
-      //       link: '/pages/modal-overlays/tooltip',
-      //     },
-      //   ],
-      // },
+      {
+        title: 'Modal & Overlays',
+        icon: 'browser-outline',
+        children: [
+          {
+            title: 'Dialog',
+            link: '/pages/modal-overlays/dialog',
+          },
+          {
+            title: 'Window',
+            link: '/pages/modal-overlays/window',
+          },
+          {
+            title: 'Popover',
+            link: '/pages/modal-overlays/popover',
+          },
+          {
+            title: 'Toastr',
+            link: '/pages/modal-overlays/toastr',
+          },
+          {
+            title: 'Tooltip',
+            link: '/pages/modal-overlays/tooltip',
+          },
+        ],
+      },
       // {
       //   title: 'Extra Components',
       //   icon: 'message-circle-outline',

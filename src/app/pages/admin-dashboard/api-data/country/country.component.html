@@ -1,0 +1,15 @@
+<nb-card>
+    <nb-card-header style="font-size: large;">
+      Country
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table  
+        [settings]="settings" 
+        [source]="countries" 
+        (deleteConfirm)="onDeleteConfirm($event)"
+        (create)="openModal($event)" 
+        (createConfirm)="addRecord($event)" >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>

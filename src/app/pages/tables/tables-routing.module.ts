@@ -10,15 +10,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './tables.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
 import { TreeGridComponent } from './tree-grid/tree-grid.component';
-import { CountryComponent } from './country/country.component';
 
 const routes: Routes = [{
   path: '',
   component: TablesComponent,
   children: [
     {
-      path: 'country',
-      component: CountryComponent
+      // path: 'country',
     },
     {
       path: 'smart-table',

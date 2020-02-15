@@ -39,6 +39,11 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path: 'admin-dashboard',
+      loadChildren: () => import('../pages/admin-dashboard/admin-dashboard.module')
+        .then(m => m.AdminDashboardModule),
+    },
+    {
       path: 'learn',
       loadChildren: () => import('../pages/learn/learn.module')
         .then(m => m.LearnModule),
