@@ -1,0 +1,19 @@
+  <nb-card>
+      <nb-card-header *ngIf="this.row.data && this.modalAction != 'delete' ">Edit Country</nb-card-header>
+      <nb-card-header *ngIf="!this.row.data">Add Country</nb-card-header>
+      <nb-card-header *ngIf="this.modalAction == 'delete' ">Delete country</nb-card-header>
+
+      <nb-card-body>
+        <form  *ngIf="this.modalAction != 'delete'" [formGroup]="modalCountryGroup">
+          <div class="form-group">
+            <label for="name" class="label">Name</label>
+            <input type="text" nbInput fullWidth id="name" placeholder="enter country" formControlName="name">
+          </div>
+          <button *ngIf="!this.row.data "  type="submit" nbButton status="danger" (click)="onButtonClick()" (click)="submitCountry()">Submit</button>  
+          <button *ngIf="this.row.data && this.modalAction != 'delete' " type="submit" nbButton status="danger" (click)="editCountry()">Save</button>  
+          <button *ngIf="this.modalAction == 'delete' " type="submit" nbButton status="danger" (click)="deleteCountry()">Delete</button>  
+          <button class="kurcina ml-3" nbButton hero status="primary" (click)="dismiss()">Close</button>
+        </form>
+      </nb-card-body>
+  </nb-card>
+  

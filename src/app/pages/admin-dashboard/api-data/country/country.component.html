@@ -7,9 +7,32 @@
       <ng2-smart-table  
         [settings]="settings" 
         [source]="countries" 
-        (deleteConfirm)="onDeleteConfirm($event)"
-        (create)="openModal($event)" 
-        (createConfirm)="addRecord($event)" >
+        (create)= "openCountryAoeModal($event)"
+        (edit)= "openCountryAoeModal($event)"
+        (delete)= "openCountryAoeModal($event, true)" 
+        (deleteConfirm)= "openWithoutBackdrop(dialog, $event)"
+        
+        (createConfirm)= "addRecord($event)">
+        
+
+        <!-- (uploaded)="someMethod($event)" -->
+        
       </ng2-smart-table>
     </nb-card-body>
   </nb-card>
+
+  
+
+  <ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+      <nb-card-header>Warning!</nb-card-header>
+      <nb-card-body>{{ data }}</nb-card-body>
+      <nb-card-footer>
+        <button nbButton (click)="ref.close()">Cancel</button>
+        <button nbButton status="danger"  (click)="deleteCountry()" (click)="ref.close()">Delete</button>
+        
+      </nb-card-footer>
+    </nb-card>
+  </ng-template>
+
+  

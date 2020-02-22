@@ -26,6 +26,10 @@ import {
 } from '@nebular/theme';
 import { PagesModule } from './pages/pages.module';
 import { LearnModule } from './pages/learn/learn.module';
+import { ModalAoeCountryComponent } from './pages/admin-dashboard/api-data/country/modal-aoe-country/modal-aoe-country.component';
+import { CountryComponent } from './pages/admin-dashboard/api-data/country/country.component';
+import { AdminDashboardModule } from './pages/admin-dashboard/admin-dashboard.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function init_app(injector: Injector) {
   return () =>
@@ -44,6 +48,10 @@ export function init_app(injector: Injector) {
     HttpClientModule,
     AppRoutingModule,
     PagesModule,
+    AdminDashboardModule,
+
+    FormsModule,
+    ReactiveFormsModule,
 
     ThemeModule.forRoot(),
     AuthModule.forRoot(),
@@ -69,6 +77,9 @@ export function init_app(injector: Injector) {
       multi: true,
     },
   ],
+  entryComponents : [
+    ModalAoeCountryComponent
+  ]
 })
 export class AppModule {
 }
