@@ -2,18 +2,28 @@
       <nb-card-header *ngIf="this.row.data && this.modalAction != 'delete' ">Edit Country</nb-card-header>
       <nb-card-header *ngIf="!this.row.data">Add Country</nb-card-header>
       <nb-card-header *ngIf="this.modalAction == 'delete' ">Delete country</nb-card-header>
+      <nb-card-body *ngIf="this.modalAction == 'delete'">
+        Jeste li sigurni da želite obrisati?
 
-      <nb-card-body>
-        <form  *ngIf="this.modalAction != 'delete'" [formGroup]="modalCountryGroup">
+      </nb-card-body>
+      <nb-card-body *ngIf="this.modalAction != 'delete'">
+        <form [formGroup]="modalCountryGroup">
           <div class="form-group">
             <label for="name" class="label">Name</label>
             <input type="text" nbInput fullWidth id="name" placeholder="enter country" formControlName="name">
           </div>
-          <button *ngIf="!this.row.data "  type="submit" nbButton status="danger" (click)="onButtonClick()" (click)="submitCountry()">Submit</button>  
-          <button *ngIf="this.row.data && this.modalAction != 'delete' " type="submit" nbButton status="danger" (click)="editCountry()">Save</button>  
-          <button *ngIf="this.modalAction == 'delete' " type="submit" nbButton status="danger" (click)="deleteCountry()">Delete</button>  
-          <button class="kurcina ml-3" nbButton hero status="primary" (click)="dismiss()">Close</button>
+          <div class="button-container">
+            <button  *ngIf="!this.row.data "  type="submit" nbButton status="danger" (click)="onButtonClick()" (click)="submitCountry()">Submit</button>  
+            <button  *ngIf="this.row.data && this.modalAction != 'delete' " type="submit" nbButton status="danger" (click)="editCountry()">Save</button>  
+            <button  nbButton hero status="primary" (click)="dismiss()">Close</button>
+          </div>
+          
         </form>
       </nb-card-body>
+        
+<nb-card-footer *ngIf="this.modalAction == 'delete'">
+  <button  class="kurcina ml-3" nbButton hero status="primary" (click)="dismiss()">Close</button>
+  <button  class="kurcina ml-3" type="submit" nbButton status="danger" (click)="deleteCountry()">Delete</button> 
+</nb-card-footer>
   </nb-card>
   

@@ -85,7 +85,7 @@ export class ModalAoeCountryComponent implements OnInit {
       this.countryService.saveCountry(this.modalCountryGroup.value).pipe(take(1)).subscribe(data => {
         // this.dismiss();
         console.log('odradio servis');
-        this.dismiss();
+        this.ref.close('add');
         this.getCountries();
         
       });
@@ -100,14 +100,14 @@ export class ModalAoeCountryComponent implements OnInit {
       return;
     } else {
       this.countryService.editCountry(this.row.data.id,this.modalCountryGroup.value).pipe(take(1)).subscribe(data => {
-        this.dismiss();
+        this.ref.close('edit');
       });
     }
   }
 
   deleteCountry() {
-    this.countryService.deleteCountry(this.row.id).pipe(take(1)).subscribe(data => {
-      this.dismiss();
+    this.countryService.deleteCountry(this.row.data.id).pipe(take(1)).subscribe(data => {
+      this.ref.close('delete');
     });
   }
 

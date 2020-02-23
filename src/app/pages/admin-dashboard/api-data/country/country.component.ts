@@ -6,13 +6,15 @@ import { environment } from '../../../../../environments/environment';
 import { ICountry } from '../../models/country';
 import { CountryService } from '../../services/country.service';
 import { Router } from '@angular/router';
-import { NbDialogRef, NbDialogService } from '@nebular/theme';
+import { NbDialogRef, NbDialogService, NbToastrService, NbGlobalPosition, NbGlobalPhysicalPosition, NbComponentStatus } from '@nebular/theme';
 import { ShowcaseDialogComponent } from '../../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import { ModalAoeCountryComponent } from './modal-aoe-country/modal-aoe-country.component';
 import { style } from '@angular/animations';
 import { Ng2SmartTableComponent } from 'ng2-smart-table/lib/ng2-smart-table.component';
 import { ConfirmationModalComponent } from '../../confirmation-modal/confirmation-modal.component';
 import { take } from 'rxjs/operators';
+import { ToasterConfig } from 'angular2-toaster';
+import { config } from 'rxjs';
 
 @Component({
   selector: 'ngx-country',
@@ -68,6 +70,7 @@ export class CountryComponent implements OnInit {
   constructor(private service: SmartTableData,
               private countryService: CountryService,
               private dialogService: NbDialogService,
+              private toastr: NbToastrService,
               private router: Router,
               private http: HttpClient) {
 
@@ -80,6 +83,17 @@ export class CountryComponent implements OnInit {
     console.log('getCOuntries');
     
   }
+
+  config: ToasterConfig;
+  
+  // public config: ToasterConfig = 
+  //       new ToasterConfig({
+  //           showCloseButton: true, 
+  //           tapToDismiss: true, 
+  //           timeout: 0,
+            
+  //       });
+ 
 
   someMethod(event) {
     this.getCountries();
@@ -102,17 +116,53 @@ export class CountryComponent implements OnInit {
     }
     );
     if(row){
-    modalRef.componentRef.instance.modalAction = 'edit'
+      modalRef.componentRef.instance.row = row;
+      
+      if(isDelete) {
+        modalRef.componentRef.instance.modalAction = 'delete'
+      }
+
+      else {
+        modalRef.componentRef.instance.modalAction = 'edit'
+      }
+
+    }
+    else {
+      modalRef.componentRef.instance.modalAction = 'add'
     }
 
-    if(isDelete){
-      modalRef.componentRef.instance.modalAction = 'delete'
-    }
-    modalRef.componentRef.instance.row = row;
-    modalRef.onClose.subscribe(load => this.getCountries());
+    modalRef.onClose.subscribe(onClose => {
+      
+      if (onClose == 'add') {
+        this.toastr.success('You added a new country', 'Success', this.config);
+        this.getCountries();
+      } else if(onClose == 'edit') {
+        this.toastr.success('You edited country', 'Success',);
+        this.getCountries();
+      } else if(onClose == 'delete') {
+        this.toastr.warning('You deleted country', 'Warning', this.config);
+        this.getCountries();
+      } else {
+        this.toastr.warning('You have not added a new country', 'Warning', this.config);
+      }
+    
+    });
+  }
+
+    
+    // modalRef.onClose.subscribe(result => {
+      
+      
+      // if (result == 'add') {
+      //   console.log('result= ',result);
+        
+      //   this.toastr.success('Uspješno ste dodali državu', 'Uspjeh');
+      //   this.getCountries();
+      // }
+    
     //add toastr notification when closing modal.
       
-    }
+    
 
     openWithoutBackdrop(dialog: TemplateRef<any>, row?) {
       const modalRef = this.dialogService.open(

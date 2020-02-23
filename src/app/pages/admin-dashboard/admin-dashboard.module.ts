@@ -5,7 +5,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { CountryComponent } from './api-data/country/country.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule, NbDialogModule, NbDialogRef, NbButtonModule, NbActionsModule, NbCheckboxModule, NbRadioModule, NbSelectModule, NbWindowModule } from '@nebular/theme';
+import { NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule, NbDialogModule, NbDialogRef, NbButtonModule, NbActionsModule, NbCheckboxModule, NbRadioModule, NbSelectModule, NbWindowModule, NbToastrModule } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ModalAoeCountryComponent } from './api-data/country/modal-aoe-country/modal-aoe-country.component';

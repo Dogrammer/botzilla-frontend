@@ -30,6 +30,7 @@ import { ModalAoeCountryComponent } from './pages/admin-dashboard/api-data/count
 import { CountryComponent } from './pages/admin-dashboard/api-data/country/country.component';
 import { AdminDashboardModule } from './pages/admin-dashboard/admin-dashboard.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { config } from 'rxjs';
 
 export function init_app(injector: Injector) {
   return () =>
