@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NbThemeService, NbMediaBreakpointsService, NbMediaBreakpoint } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnDestroy {
 
-  constructor() { }
+  breakpoint: NbMediaBreakpoint;
+  breakpoints: any;
+  themeSubscription: any;
 
-  ngOnInit() {
+  constructor(private themeService: NbThemeService,
+              private breakpointService: NbMediaBreakpointsService) {
+
+    this.breakpoints = this.breakpointService.getBreakpointsMap();
+    this.themeSubscription = this.themeService.onMediaQueryChange()
+      .subscribe(([oldValue, newValue]) => {
+        this.breakpoint = newValue;
+      });
+  }
+
+  ngOnDestroy() {
+    this.themeSubscription.unsubscribe();
   }
 
 }
