@@ -14,9 +14,11 @@ import { ShowcaseDialogComponent } from '../modal-overlays/dialog/showcase-dialo
 import { PagesModule } from '../pages.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { NewsComponent } from './api-data/news/news.component';
+import { ModalAoeNewsComponent } from './api-data/news/modal-aoe-news/modal-aoe-news.component';
 
 @NgModule({
-  declarations: [CountryComponent, AdminDashboardComponent, ModalAoeCountryComponent, ConfirmationModalComponent],
+  declarations: [CountryComponent, AdminDashboardComponent, ModalAoeCountryComponent, ConfirmationModalComponent, NewsComponent, ModalAoeNewsComponent],
   imports: [
     CommonModule,
     AdminDashboardRoutingModule,

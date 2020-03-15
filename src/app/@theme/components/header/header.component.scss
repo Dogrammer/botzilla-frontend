@@ -19,7 +19,10 @@
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
   }
 
+  
+
   nb-action {
+    
     height: auto;
     display: flex;
     align-content: center;
