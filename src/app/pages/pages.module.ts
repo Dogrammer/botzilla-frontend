@@ -13,7 +13,7 @@ import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesMenu } from './pages-menu';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
-import { NbMenuModule, NbCardModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule, NbInputModule, NbButtonModule, NbSelectModule } from '@nebular/theme';
 import { AuthModule } from '../@auth/auth.module';
 import { NewsComponent } from './news/news.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -21,6 +21,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductComponent } from './product/product.component';
 import { CourseComponent } from './learn/course/course.component';
 import { LectionComponent } from './learn/lection/lection.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -32,6 +33,11 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NbButtonModule,
+    NbSelectModule,
+    NbInputModule,
     ECommerceModule,
     NbMenuModule,
     MiscellaneousModule,

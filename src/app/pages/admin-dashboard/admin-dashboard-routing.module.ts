@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CountryComponent } from './api-data/country/country.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { EmailListComponent } from './api-data/email-list/email-list.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
         path: 'country',
         component: CountryComponent,
       },
+      {
+        path: 'emails',
+        component: EmailListComponent,
+      }
     ],
   },
 ];

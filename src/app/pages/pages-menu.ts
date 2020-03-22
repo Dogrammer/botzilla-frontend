@@ -78,6 +78,10 @@ export class PagesMenu {
           {
             title: 'Country',
             link: '/pages/admin-dashboard/country'
+          },
+          {
+            title: 'Emails',
+            link: '/pages/admin-dashboard/emails'
           }
 
         ]

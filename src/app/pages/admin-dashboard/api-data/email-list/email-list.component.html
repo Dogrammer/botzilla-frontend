@@ -1,0 +1,26 @@
+<div *ngFor="let email of emailContact" class="col-md-12 col-xxxl-12">
+    <!-- <nb-card accent="info" [size]="breakpoint.width >= breakpoints.xxxl ? 'small' : 'medium'"> -->
+    <nb-card accent="info" [size]="'large'">
+      <nb-card-header>
+        <label style="color: gray;">Name</label>
+        <p>{{email.nameOfSender}}</p>
+        <label style="color: gray;">E-Mail address</label>
+        <p>{{email.emailAddress}}</p>
+        <label style="color: gray;">Subject</label>
+        <p>{{email.emailSubject.name}}</p>
+      </nb-card-header>
+      
+      <nb-card-body  class="body-news">
+        <div class="image-div">
+            <label style="color: gray;">Message: </label>
+        </div>
+        <div class="content-div">
+            <p>{{email.body}}</p>
+        </div> 
+          
+      </nb-card-body>
+      <nb-card-footer>
+        <button  class="kurcina" nbButton hero status="primary" >Reply</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>

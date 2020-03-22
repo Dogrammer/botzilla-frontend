@@ -1,29 +1,83 @@
 <nb-card>
-    <nb-card-header style="background-color: #35dc8e83;">
+    <nb-card-header >
         <h4>Botzilla news</h4>
     </nb-card-header>
 </nb-card>
-<div class="col-md-12 col-xxxl-4">
+<!-- <div *ngFor="let n of news" class="col-md-12 col-xxxl-12">
     <nb-card accent="danger" [size]="breakpoint.width >= breakpoints.xxxl ? 'small' : 'medium'">
       <nb-card-header>
-        <p>Computer-Based Weather Forecast: New Algorithm Outperforms Mainframe Computer Systems.</p>
+        <p>{{n.title}}</p>
       </nb-card-header>
       <nb-card-body class="body-news">
         <div class="image-div">
-          <img class="image" src="../../../assets/images/news2.png" alt="kurac" style="max-width:100%;
+          <img src="data:image/png;base64," class="image" alt="kurac" style="max-width:100%;
           max-height:100%; border-radius: 1%;">
         </div>
          <div class="content-div">
-          <p>  &nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-             Cum et quod hic officia doloremque, quo harum iste amet obcaecati,
-              a saepe. Sed, reprehenderit exercitationem quae cum, asperiores rerum,
-               architecto dolore est earum voluptate temporibus? Esse, numquam ipsa.
-                Aperiam nesciunt aliquid iure quisquam vitae placeat amet at dignissimos totam.
-                 Tempore in eius minus esse suscipit sed recusandae alias libero quos pariatur 
-                 voluptates blanditiis similique sint quis modi dolores, laboriosam saepe beatae
-                  eos sapiente quasi! Unde perferendis praesentium, voluptas deleniti illum totam 
-                  nostrum accusamus, ratione quod autem adipisci optio odit assumenda eveniet odio,
-                   perspiciatis ut at repellendus? Provident molestias voluptate veniam accusamus!</p>
+          <p>  &nbsp; &nbsp; &nbsp; &nbsp; {{n.content}}</p>
+         </div> 
+          
+      </nb-card-body>
+      <nb-card-footer>
+        <p style="float: right;">Post created: &nbsp; July 21, 2020</p>
+      </nb-card-footer>
+    </nb-card>
+  </div> -->
+
+  <div class="col-md-12 col-xxxl-12">
+    <nb-card accent="danger" [size]="breakpoint.width >= breakpoints.xxxl ? 'small' : 'medium'">
+      <nb-card-header>
+        <h6>Lorem ipsum dolor sit amet.</h6>
+      </nb-card-header>
+      <nb-card-body class="body-news">
+        <div class="image-div">
+          <img src="../../../assets/images/news1.jpg" class="image" alt="kurac" style="max-width:100%;
+          max-height:100%; border-radius: 1%;">
+        </div>
+         <div class="content-div">
+          <p>  &nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit.  corporis! Similique consectetur placeat voluptates adipisci aliquid molestiae tenetur laudantium, blanditiis pariatur quisquam aperiam recusandae facere est, veniam perferendis quam temporibus suscipit quis harum deserunt labore doloribus distinctio consequuntur! Molestiae laboriosam minus enim at dolores delectus soluta quaerat animi architecto. Nesciunt omnis molestiae suscipit placeat distinctio possimus ipsam nihil quo quis illum aut ipsa hic deleniti fugit ullam vero iure itaque, quae consequatur debitis natus cumque ducimus maiores? Cupiditate eligendi blanditiis saepe ab corrupti at non nihil eos praesentium minus iure illum, inventore facilis laudantium molestiae fugiat repellendus unde quam labore in. Repellendus amet reprehenderit consequatur eos quaerat sed asperiores vero qui iure adipisci laudantium nemo maxime, sint, similique, cumque ipsam aliquam ratione eum et. Eaque recusandae explicabo quos delectus, facere animi sequi quidem atque dicta repellat minima accusantium harum adipisci aperiam tenetur rem vero quod deleniti, architecto officia veritatis natus incidunt perspiciatis. Unde hic optio cupiditate quod repellendus quo animi eaque illum incidunt.</p>
+         </div> 
+          
+      </nb-card-body>
+      <nb-card-footer>
+        <p style="float: right;">Post created: &nbsp; July 21, 2020</p>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-xxxl-12">
+    <nb-card accent="danger" [size]="breakpoint.width >= breakpoints.xxxl ? 'small' : 'medium'">
+      <nb-card-header>
+        <h6>Lorem ipsum dolor sit amet.</h6>
+      </nb-card-header>
+      <nb-card-body class="body-news">
+        <div class="image-div">
+          <img src="../../../assets/images/news2.png" class="image" alt="kurac" style="max-width:100%;
+          max-height:100%; border-radius: 1%;">
+        </div>
+         <div class="content-div">
+          <p>  &nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit.  corporis! Similique consectetur placeat voluptates adipisci aliquid molestiae tenetur laudantium, blanditiis pariatur quisquam aperiam recusandae facere est, veniam perferendis quam temporibus suscipit quis harum deserunt labore doloribus distinctio consequuntur! Molestiae laboriosam minus enim at dolores delectus soluta quaerat animi architecto. Nesciunt omnis molestiae suscipit placeat distinctio possimus ipsam nihil quo quis illum aut ipsa hic deleniti fugit ullam vero iure itaque, quae consequatur debitis natus cumque ducimus maiores? Cupiditate eligendi blanditiis saepe ab corrupti at non nihil eos praesentium minus iure illum, inventore facilis laudantium molestiae fugiat repellendus unde quam labore in. Repellendus amet reprehenderit consequatur eos quaerat sed asperiores vero qui iure adipisci laudantium nemo maxime, sint, similique, cumque ipsam aliquam ratione eum et. Eaque recusandae explicabo quos delectus, facere animi sequi quidem atque dicta repellat minima accusantium harum adipisci aperiam tenetur rem vero quod deleniti, architecto officia veritatis natus incidunt perspiciatis. Unde hic optio cupiditate quod repellendus quo animi eaque illum incidunt.</p>
+         </div> 
+          
+      </nb-card-body>
+      <nb-card-footer>
+        <p style="float: right;">Post created: &nbsp; July 21, 2020</p>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-xxxl-12">
+    <nb-card accent="danger" [size]="breakpoint.width >= breakpoints.xxxl ? 'small' : 'medium'">
+      <nb-card-header>
+        <h6>Lorem ipsum dolor sit amet.</h6>
+      </nb-card-header>
+      <nb-card-body class="body-news">
+        <div class="image-div">
+          <img src="../../../assets/images/news3.jpg" class="image" alt="kurac" style="max-width:100%;
+          max-height:100%; border-radius: 1%;">
+        </div>
+         <div class="content-div">
+          <p>  &nbsp; &nbsp; &nbsp; &nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit.  corporis! Similique consectetur placeat voluptates adipisci aliquid molestiae tenetur laudantium, blanditiis pariatur quisquam aperiam recusandae facere est, veniam perferendis quam temporibus suscipit quis harum deserunt labore doloribus distinctio consequuntur! Molestiae laboriosam minus enim at dolores delectus soluta quaerat animi architecto. Nesciunt omnis molestiae suscipit placeat distinctio possimus ipsam nihil quo quis illum aut ipsa hic deleniti fugit ullam vero iure itaque, quae consequatur debitis natus cumque ducimus maiores? Cupiditate eligendi blanditiis saepe ab corrupti at non nihil eos praesentium minus iure illum, inventore facilis laudantium molestiae fugiat repellendus unde quam labore in. Repellendus amet reprehenderit consequatur eos quaerat sed asperiores vero qui iure adipisci laudantium nemo maxime, sint, similique, cumque ipsam aliquam ratione eum et. Eaque recusandae explicabo quos delectus, facere animi sequi quidem atque dicta repellat minima accusantium harum adipisci aperiam tenetur rem vero quod deleniti, architecto officia veritatis natus incidunt perspiciatis. Unde hic optio cupiditate quod repellendus quo animi eaque illum incidunt.</p>
          </div> 
           
       </nb-card-body>

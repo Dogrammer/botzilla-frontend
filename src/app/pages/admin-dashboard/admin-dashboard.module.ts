@@ -16,9 +16,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { NewsComponent } from './api-data/news/news.component';
 import { ModalAoeNewsComponent } from './api-data/news/modal-aoe-news/modal-aoe-news.component';
+import { EmailListComponent } from './api-data/email-list/email-list.component';
+import { ModalEmailReplyComponent } from './api-data/email-list/modal-email-reply/modal-email-reply.component';
 
 @NgModule({
-  declarations: [CountryComponent, AdminDashboardComponent, ModalAoeCountryComponent, ConfirmationModalComponent, NewsComponent, ModalAoeNewsComponent],
+  declarations: [CountryComponent, AdminDashboardComponent, ModalAoeCountryComponent, ConfirmationModalComponent, NewsComponent, ModalAoeNewsComponent, EmailListComponent, ModalEmailReplyComponent],
   imports: [
     CommonModule,
     AdminDashboardRoutingModule,
@@ -34,6 +36,7 @@ import { ModalAoeNewsComponent } from './api-data/news/modal-aoe-news/modal-aoe-
     NbIconModule,
     ReactiveFormsModule,
     FormsModule,
+    
 
     NbInputModule,
     NbDialogModule.forRoot(),
