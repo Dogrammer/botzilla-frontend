@@ -36,6 +36,7 @@ import { ModalEmailReplyComponent } from './api-data/email-list/modal-email-repl
     NbIconModule,
     ReactiveFormsModule,
     FormsModule,
+    NbWindowModule.forChild(),
     
 
     NbInputModule,
@@ -55,6 +56,7 @@ import { ModalEmailReplyComponent } from './api-data/email-list/modal-email-repl
   // }],
   entryComponents: [
     ModalAoeCountryComponent,
+    ModalEmailReplyComponent
     
 
   ],

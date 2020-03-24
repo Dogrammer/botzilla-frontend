@@ -20,7 +20,14 @@
           
       </nb-card-body>
       <nb-card-footer>
-        <button  class="kurcina" nbButton hero status="primary" >Reply</button>
+        <button  class=".col-md-1" (click)="openReplyMessageWindow(email.id)" nbButton hero status="primary" >Reply</button>
+        <div *ngIf="email.isReplied" class="kurac">
+          <nb-icon style="color: greenyellow; font-size: 30px;" icon="checkmark-outline"></nb-icon>
+          <p style="display: inline; font-size: 12px;">Already replied</p>
+        </div>
+        
       </nb-card-footer>
     </nb-card>
   </div>
+
+  

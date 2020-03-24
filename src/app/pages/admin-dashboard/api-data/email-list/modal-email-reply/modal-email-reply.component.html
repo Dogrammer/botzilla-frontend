@@ -1,1 +1,16 @@
-<p>modal-email-reply works!</p>
+<div style="width:800px;">
+    <form [formGroup]="replyEmailGroup" #ContactForm = "ngForm" >
+        <div class="form-group">
+          <textarea formControlName="body" rows="5" nbInput fullWidth   placeholder="Enter your message..."></textarea>
+        </div>
+        <button [disabled]="!ContactForm.valid" (click) = "submitEmail()" type="submit" nbButton status="danger">Send</button>  
+      </form>
+      <p>	</p>
+      
+</div>    
+          
+            
+          
+     
+
+     

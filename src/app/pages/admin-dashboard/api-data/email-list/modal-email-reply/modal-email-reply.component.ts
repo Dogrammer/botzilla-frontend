@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IEmailContact } from '../../../models/email-contact';
 import { EmailContactService } from '../../../services/email-contact.service';
 import { FormBuilder, AbstractControl, FormGroup, Validators } from '@angular/forms';
-import { NbDialogRef } from '@nebular/theme';
+import { NbDialogRef, NbWindowRef, NbToastrService } from '@nebular/theme';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -18,31 +18,39 @@ export class ModalEmailReplyComponent implements OnInit {
 
   
   emailContact : IEmailContact[] = [];
-  testVar: any;
+  emailId: any;
 
   constructor(
     private emailContactService: EmailContactService,
+    private toaster: NbToastrService,
+    public windowRef: NbWindowRef,
     private formBuilder: FormBuilder,
-    protected ref: NbDialogRef<ModalEmailReplyComponent>) {}
+    ) {}
 
     ngOnInit() {
-      console.log('row', this.row.data);
+      // console.log('row', this.row.data);
       this.getEmails();
+      console.log(this.row);
+      console.log(this.emailId);
+      
+      
+      
 
-      if(this.row.data) {
-        this.replyEmailGroup.patchValue({
-          emailContactId: this.row.data.id,
-        });
-      }
+      // if(this.row.data) {
+      //   this.replyEmailGroup.patchValue({
+      //     emailContactId: this.row.data.id,
+      //   });
+      // }
     }
 
     replyEmailGroup: FormGroup = this.formBuilder.group({
-      emailContactId: [null],
       body: [null, Validators.required],
     });
     
-  dismiss() {
-    this.ref.close();
+  
+
+  close() {
+    this.windowRef.close();
   }
 
   // getters for reactive form
@@ -54,19 +62,18 @@ export class ModalEmailReplyComponent implements OnInit {
     return this.replyEmailGroup.get('body');
   }
 
-
-
-  submitCountry() {
+  submitEmail() {
     console.log('submit usao');
-    
     console.log(this.replyEmailGroup.value);
     if(!this.replyEmailGroup.valid) {
       return;
     } else {
-      this.emailContactService.replyEmailContact(this.row.data.id,this.replyEmailGroup.value).pipe(take(1)).subscribe(data => {
+      this.emailContactService.replyEmailContact(this.emailId, this.replyEmailGroup.value).pipe(take(1)).subscribe(data => {
         // this.dismiss();
         console.log('odradio servis');
-        this.ref.close('add');
+        this.close();
+        // this.windowRef.
+        this.toaster.success("Your message has been sent successfully", "Success")
         this.getEmails();
         
       });

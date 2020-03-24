@@ -39,12 +39,12 @@ export class EmailContactService {
     );
   }
 
-  replyEmailContact(emailSubjectId, contactFormData) {
+  replyEmailContact(emailContactId, contactFormData) {
     let request = {
-      emailSubjectId: emailSubjectId,
-      contactFormData:  contactFormData
+      emailContactId: emailContactId,
+      body:  contactFormData.body
     }
-    return this.http.post(environment.apiUrl + this.CONTROLER_NAME + '/contactSendEmail', request).pipe(
+    return this.http.post(environment.apiUrl + this.CONTROLER_NAME + '/replyEmailContact', request).pipe(
       map( data => {
         return data
       })

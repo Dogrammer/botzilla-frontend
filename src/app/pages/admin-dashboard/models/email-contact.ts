@@ -7,5 +7,6 @@ export interface IEmailContact {
     emailAddress: string;
     emailSubject: IEmailSubject;
     nameOfSender: string;
+    isReplied: boolean;
     
 }

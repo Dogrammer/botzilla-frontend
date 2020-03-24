@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, TemplateRef } from '@angular/core';
 import { EmailContactService } from '../../services/email-contact.service';
 import { IEmailContact } from '../../models/email-contact';
-import { NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService, NbDialogService, NbToastrService } from '@nebular/theme';
+import { NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService, NbDialogService, NbToastrService, NbWindowService } from '@nebular/theme';
 import { ModalEmailReplyComponent } from './modal-email-reply/modal-email-reply.component';
 import { ToasterConfig } from 'angular2-toaster';
 
@@ -12,6 +12,25 @@ import { ToasterConfig } from 'angular2-toaster';
 })
 export class EmailListComponent implements OnInit, OnDestroy {
 
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
+
+  
+
+  openWindow(contentTemplate) {
+    this.windowService.open(
+      contentTemplate,
+      {
+        title: 'Window content from template',
+        context: {
+          text: 'some text to pass into template',
+        },
+      },
+    );
+  }
+
+  
+
   breakpoint: NbMediaBreakpoint;
   breakpoints: any;
   themeSubscription: any;
@@ -19,6 +38,7 @@ export class EmailListComponent implements OnInit, OnDestroy {
   config: ToasterConfig;
 
   constructor(private emailContactService: EmailContactService,
+              private windowService: NbWindowService,
               private themeService: NbThemeService,
               private toastr: NbToastrService,
               private dialogService: NbDialogService,
@@ -50,15 +70,15 @@ export class EmailListComponent implements OnInit, OnDestroy {
     }
     );
     if(row){
-      // modalRef.componentRef.instance.row = row;
-      // modalRef.componentRef.instance.
+      modalRef.componentRef.instance.row = row;
+      // modalRef.componentRef.instance;
       
       if(isDelete) {
-        // modalRef.componentRef.instance.modalAction = 'delete'
+        modalRef.componentRef.instance.modalAction = 'delete'
       }
 
       else {
-        // modalRef.componentRef.instance.modalAction = 'edit'
+        modalRef.componentRef.instance.modalAction = 'edit'
       }
 
     }
@@ -83,5 +103,19 @@ export class EmailListComponent implements OnInit, OnDestroy {
     
     });
   }
+
+  openReplyMessageWindow(id) {
+    const modalRef = this.windowService.open(ModalEmailReplyComponent, {title: 'Reply Message', context: {emailId: id} });
+
+    modalRef.onClose.subscribe(onClose => {
+      
+      this.getAllEmails();
+      console.log('kurcina na closu');
+      
+    
+    });
+  }
+
+  
 
 }
