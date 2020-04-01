@@ -105,13 +105,12 @@ export class EmailListComponent implements OnInit, OnDestroy {
   }
 
   openReplyMessageWindow(id) {
-    const modalRef = this.windowService.open(ModalEmailReplyComponent, {title: 'Reply Message', context: {emailId: id} });
+    const modalRef = this.windowService.open(ModalEmailReplyComponent, {title: 'Reply Message',closeOnEsc:false, hasBackdrop:false, context: {emailId: id}   });
 
     modalRef.onClose.subscribe(onClose => {
       
       this.getAllEmails();
       console.log('kurcina na closu');
-      
     
     });
   }

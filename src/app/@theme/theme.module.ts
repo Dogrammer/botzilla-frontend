@@ -19,6 +19,7 @@ import {
   NbIconModule,
   NbSpinnerModule,
   NbThemeModule,
+  NbTabsetModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -48,12 +49,14 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import { RouterModule } from '@angular/router';
 
 const NB_MODULES = [
   NbLayoutModule,
   NbMenuModule,
   NbUserModule,
   NbActionsModule,
+  NbTabsetModule,
   NbSearchModule,
   NbSidebarModule,
   NbContextMenuModule,
@@ -63,6 +66,7 @@ const NB_MODULES = [
   NbIconModule,
   NbSpinnerModule,
   NbEvaIconsModule,
+  RouterModule
 ];
 const COMPONENTS = [
   HeaderComponent,

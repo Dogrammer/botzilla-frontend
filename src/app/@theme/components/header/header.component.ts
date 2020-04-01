@@ -11,6 +11,7 @@ import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { UserStore } from '../../../@core/stores/user.store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
+  aboutUrl: boolean = false;
 
   themes = [
     {
@@ -47,6 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userMenu = this.getMenuItems();
 
   constructor(private sidebarService: NbSidebarService,
+              private router: Router,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private userStore: UserStore,
@@ -63,6 +66,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    if (this.router.url.includes('/pages/about-us')) {
+      this.aboutUrl = true;
+    }
+    console.log('url',this.router.url);
+    console.log('aboutus', this.aboutUrl);
+    
+    
+
     this.currentTheme = this.themeService.currentTheme;
     this.user = this.userStore.getUser();
     this.userMenu = this.getMenuItems();
@@ -87,6 +99,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+
+  
 
   changeTheme(themeName: string) {
     this.userStore.setSetting(themeName)

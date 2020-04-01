@@ -5,8 +5,8 @@
   -->
 
 <div class="header-container">
-  <div class="logo-container">
-    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+  <div  class="logo-container">
+    <a *ngIf="!aboutUrl" (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
     <a class="logo" href="#" (click)="navigateHome()"><strong>Bot<span>zilla</span></strong></a>
@@ -17,8 +17,16 @@
 </div>
 
 <div class="header-container">
-  <nb-actions size="small">
 
+  <nb-tabset>
+    <nb-tab tabTitle="Home"></nb-tab>
+    <nb-tab tabTitle="Tutorial"></nb-tab>
+    <nb-tab tabTitle="Contact us"></nb-tab>
+  </nb-tabset>
+
+
+  <nb-actions size="small">
+    <nb-action icon="home-outline"></nb-action>
     <nb-action class="control-item">
       <nb-search type="rotate-layout"></nb-search>
     </nb-action>

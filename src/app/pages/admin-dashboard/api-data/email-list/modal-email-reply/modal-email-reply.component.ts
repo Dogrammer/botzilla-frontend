@@ -53,6 +53,10 @@ export class ModalEmailReplyComponent implements OnInit {
     this.windowRef.close();
   }
 
+  minimize() {
+    this.windowRef.minimize();
+  }
+
   // getters for reactive form
   get emailContactId(): AbstractControl {
     return this.replyEmailGroup.get('emailContactId');

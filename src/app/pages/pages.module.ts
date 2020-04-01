@@ -13,7 +13,7 @@ import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesMenu } from './pages-menu';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
-import { NbMenuModule, NbCardModule, NbInputModule, NbButtonModule, NbSelectModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule, NbInputModule, NbButtonModule, NbSelectModule, NbSidebarModule } from '@nebular/theme';
 import { AuthModule } from '../@auth/auth.module';
 import { NewsComponent } from './news/news.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -38,6 +38,7 @@ const PAGES_COMPONENTS = [
     NbButtonModule,
     NbSelectModule,
     NbInputModule,
+    NbSidebarModule,
     ECommerceModule,
     NbMenuModule,
     MiscellaneousModule,

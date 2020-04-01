@@ -37,4 +37,17 @@ export class RoleProvider extends NbRoleProvider {
         }),
       );
   }
+
+
+  //metodu ispod obrisi , gornja je original
+  // getRole(): Observable<string | string[]> {
+    // return;
+    // this.authService.onTokenChange()
+      // .pipe(
+      //   map((token: NbAuthOAuth2JWTToken) => {
+      //     const payload = token.getAccessTokenPayload();
+      //     return !!(token.isValid() && payload && payload['role']) ? this.getLowerCaseRoles(payload['role']) : 'guest';
+      //   }),
+      // );
+  // }
 }
