@@ -11,6 +11,9 @@ import { getDeepFromObject } from '../../helpers';
 import { NbThemeService } from '@nebular/theme';
 import { EMAIL_PATTERN } from '../constants';
 import { InitUserService } from '../../../@theme/services/init-user.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'ngx-login',
@@ -46,6 +49,7 @@ export class NgxLoginComponent implements OnInit {
     protected cd: ChangeDetectorRef,
     protected themeService: NbThemeService,
     private fb: FormBuilder,
+    private http: HttpClient,
     protected router: Router,
     protected initUserService: InitUserService) { }
 
@@ -95,6 +99,7 @@ export class NgxLoginComponent implements OnInit {
       this.cd.detectChanges();
     });
   }
+
 
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);

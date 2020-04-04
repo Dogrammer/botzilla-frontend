@@ -13,9 +13,9 @@ import { takeWhile } from 'rxjs/operators';
   selector: 'ngx-auth',
   styleUrls: ['./auth.component.scss'],
   template: `
-    <nb-layout>
+    <nb-layout class="auth">
       <nb-layout-column>
-        <nb-card>
+        <nb-card class="auth">
           <nb-card-header>
             <nav class="navigation">
               <a href="#" (click)="back()" class="link back-link" aria-label="Back">
