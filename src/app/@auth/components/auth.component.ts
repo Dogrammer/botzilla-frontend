@@ -22,6 +22,7 @@ import { takeWhile } from 'rxjs/operators';
                 <nb-icon icon="arrow-back"></nb-icon>
               </a>
             </nav>
+            
           </nb-card-header>
           <nb-card-body>
             <nb-auth-block>

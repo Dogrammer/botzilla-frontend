@@ -1,32 +1,123 @@
 <nb-card class="auth">
-  <nb-card-header>Register</nb-card-header>
+  <nb-card-header>
+    Register
+  </nb-card-header>
   <nb-card-body>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="form-group row">
+        <label for="firstName" class="label col-sm-3 col-form-label">First Name</label>
+        <div class="col-sm-9">
+          <input class="form-control" [ngClass]="{'is-invalid': registerForm.get('firstName').errors && registerForm.get('firstName').touched}"
+            formControlName="firstName" 
+            type="text" 
+            nbInput 
+            fullWidth 
+            id="firstName" 
+            placeholder="First Name">
+           <div class="invalid-feedback">Please enter your first name</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputLastName" class="label col-sm-3 col-form-label">Last Name</label>
+        <div class="col-sm-9">
+          <input 
+            class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('lastName').errors && registerForm.get('lastName').touched}"
+            formControlName="lastName" 
+            type="email" 
+            nbInput 
+            fullWidth 
+            id="inputLastName" 
+            placeholder="Last Name">
+           <div class="invalid-feedback">Please enter your last name</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 label">Gender</label>
+        <div class="col-sm-9">
+          <nb-radio-group>
+            <nb-radio class="radio-inline">Female</nb-radio>
+            <nb-radio class="radio-inline">Male</nb-radio>
+            <nb-radio class="radio-inline">Other</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="educationlevel" class="label col-sm-3 col-form-label">Education Level</label>
+        <div class="col-sm-9">
+          <nb-select formControlName="educationLevelId" fullWidth id="educationlevel" placeholder="Select education level">
+            <nb-option *ngFor="let ed of educationLevel" [value]="ed.id">
+              {{ ed.name }} </nb-option>
+          </nb-select>
+            <!-- <input type="text" nbInput fullWidth placeholder="Subject"> -->
+        </div>
+      </div>
+      <div class="form-group row">
         <label for="inputEmail1" class="label col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="email" nbInput fullWidth id="inputEmail1" placeholder="Email">
+          <input
+            class="form-control" 
+            [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched}"
+            formControlName="email" 
+            type="email" 
+            nbInput 
+            fullWidth 
+            id="inputEmail1" 
+            placeholder="Email">
+            <div class="invalid-feedback" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+              Email is required
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">
+              Email must be a valid email address
+            </div>
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPassword2" class="label col-sm-3 col-form-label">Password</label>
         <div class="col-sm-9">
-          <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+          <input
+            class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}"
+            formControlName="password" 
+            type="password" 
+            nbInput 
+            fullWidth 
+            id="inputPassword2" 
+            placeholder="Password">
+            <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+              Password is required
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+              Password must be at least 4 characters
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+              Password cannot exceed 8 characters
+            </div>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-3 label">Radios</label>
+        <label for="confirminputPassword2" class="label col-sm-3 col-form-label">Confirm Password</label>
         <div class="col-sm-9">
-          <nb-radio-group>
-            <nb-radio>Option 1</nb-radio>
-            <nb-radio>Option 2</nb-radio>
-            <nb-radio disabled>Disabled Option</nb-radio>
-          </nb-radio-group>
+          <input 
+            class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched}"
+            formControlName="confirmPassword" 
+            type="password" 
+            nbInput 
+            fullWidth 
+            id="confirminputPassword2" 
+            placeholder="Password">
+            <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') 
+                                          && registerForm.get('confirmPassword').touched">Confirm Password is required
+            </div>
+        <div class="invalid-feedback" *ngIf="registerForm.hasError('mismatch') 
+                                      && registerForm.get('confirmPassword').touched">Passwords must match
         </div>
+      </div>
       </div>
       <div class="form-group row">
         <div class="offset-sm-3 col-sm-9">
-          <button type="submit" nbButton status="primary">Sign in</button>
+          <button type="submit" nbButton status="primary">Sign up</button>
         </div>
       </div>
     </form>

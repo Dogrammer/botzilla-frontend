@@ -41,6 +41,7 @@ import {
   NbInputModule,
   NbButtonModule,
   NbRadioModule,
+  NbSelectModule,
 } from '@nebular/theme';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ComponentsModule } from '../@components/components.module';
@@ -66,6 +67,7 @@ const NB_MODULES = [
   NbAlertModule,
   NbCheckboxModule,
   NbRadioModule,
+  NbSelectModule,
   NbInputModule,
   NbButtonModule,
 ];

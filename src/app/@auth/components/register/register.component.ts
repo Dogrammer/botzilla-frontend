@@ -7,6 +7,7 @@ import { EMAIL_PATTERN } from '../constants';
 import { AuthService } from '../../services/auth.service';
 import { NbToastrService } from '@nebular/theme';
 import { IUser } from '../../models/user';
+import { IEducationLevel } from '../../models/education-level';
 
 @Component({
   selector: 'ngx-register',
@@ -31,6 +32,8 @@ export class NgxRegisterComponent implements OnInit {
   messages: string[] = [];
   // user: any = {};
   user: IUser;
+  educationLevel : IEducationLevel[] = [];
+
 
   registerForm: FormGroup;
   constructor(protected service: NbAuthService,
@@ -48,6 +51,7 @@ export class NgxRegisterComponent implements OnInit {
   get terms() { return this.registerForm.get('terms'); }
 
   ngOnInit(): void {
+    this.getEducationLevels();
     // const fullNameValidators = [
     // ];
     // this.isFullNameRequired && fullNameValidators.push(Validators.required);
@@ -72,6 +76,14 @@ export class NgxRegisterComponent implements OnInit {
     // });
 
     this.createRegisterForm();
+  }
+
+  getEducationLevels() {
+    console.log('kurcina jedan');
+    
+    this.authService.getEducationLevels().subscribe(
+      data => { this.educationLevel = data;}
+    )
   }
 
   // register(): void {
@@ -102,13 +114,19 @@ export class NgxRegisterComponent implements OnInit {
   // }
 
   register() {
+    console.log('forma:', this.registerForm.value);
+    
     if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(() => {
         this.toastr.success('Registration successful', 'Success');
       }, error => {
-        this.toastr.danger(error);
+        console.log('error',error);
+        
+        this.toastr.danger(error.message);
       }, () => {
+        console.log('uso u login dio');
+        
         this.authService.login(this.user).subscribe(() => {
           this.router.navigate(['/pages/news']);
         });
@@ -118,9 +136,11 @@ export class NgxRegisterComponent implements OnInit {
 
   createRegisterForm() {
     this.registerForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       gender: ['male'],
-      email: ['', Validators.required],
-      username: ['', Validators.required],
+      educationLevelId: [null, Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
     }, {validator: this.passwordMatchValidator});

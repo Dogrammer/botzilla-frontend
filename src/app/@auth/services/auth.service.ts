@@ -4,6 +4,8 @@ import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IUser } from '../models/user';
+import { IEducationLevel } from '../models/education-level';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +53,13 @@ export class AuthService {
       }
     });
     return isMatch;
+  }
+
+  getEducationLevels(): Observable<IEducationLevel[]> {
+    return this.http.get<IEducationLevel[]>(this.baseUrl + 'getEducationLevels').pipe(
+      map( data => {
+        return data
+      })
+    );
   }
 }
