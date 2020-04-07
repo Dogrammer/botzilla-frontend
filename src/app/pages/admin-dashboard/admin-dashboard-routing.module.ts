@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: AdminDashboardComponent,
+    data: {roles: ['Admin']},
     children: [
       {
         path: 'country',
