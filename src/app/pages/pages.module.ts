@@ -55,6 +55,7 @@ const PAGES_COMPONENTS = [
   ],
   providers: [
     PagesMenu,
+    
   ],
 })
 export class PagesModule {

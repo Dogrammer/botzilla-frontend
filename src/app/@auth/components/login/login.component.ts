@@ -60,7 +60,7 @@ export class NgxLoginComponent implements OnInit {
   ngOnInit(): void {
     this.createLoginForm();
   }
-
+  
   login() {
     console.log('login model', this.model);
     
@@ -69,6 +69,8 @@ export class NgxLoginComponent implements OnInit {
     }, error => {
       this.toastr.danger(error);
     }, () => {
+      console.log('uso u vanjinu staru');
+      
       this.router.navigate(['/pages/news']);
     });
   }

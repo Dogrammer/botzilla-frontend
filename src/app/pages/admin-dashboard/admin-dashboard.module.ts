@@ -18,6 +18,7 @@ import { NewsComponent } from './api-data/news/news.component';
 import { ModalAoeNewsComponent } from './api-data/news/modal-aoe-news/modal-aoe-news.component';
 import { EmailListComponent } from './api-data/email-list/email-list.component';
 import { ModalEmailReplyComponent } from './api-data/email-list/modal-email-reply/modal-email-reply.component';
+import { NotFoundComponent } from '../miscellaneous/not-found/not-found.component';
 
 @NgModule({
   declarations: [CountryComponent, AdminDashboardComponent, ModalAoeCountryComponent, ConfirmationModalComponent, NewsComponent, ModalAoeNewsComponent, EmailListComponent, ModalEmailReplyComponent],
