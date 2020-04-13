@@ -57,6 +57,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private breakpointService: NbMediaBreakpointsService) {
   }
 
+  navigateToHome() {
+    this.router.navigateByUrl('pages/news')
+  }
+
   getMenuItems() {
     const userLink = this.user ?  '/pages/users/current/' : '';
     return [
