@@ -22,14 +22,14 @@ export class AppComponent implements OnInit {
     this.analytics.trackPageViews();
   }
 
-  initTestUserToken() {
-    const demoTokenInitKey = 'demo_token_initialized';
-    const demoTokenWasInitialized = localStorage.getItem(demoTokenInitKey);
-    const currentToken = this.tokenStorage.get();
-    if (!demoTokenWasInitialized && !currentToken.isValid()) {
-      // local storage is clear, let's setup demo user token for better demo experience
-      this.tokenStorage.set(this.authStrategy.createToken<NbAuthToken>(environment.testUser.token));
-      localStorage.setItem(demoTokenInitKey, 'true');
-    }
-  }
+  // initTestUserToken() {
+  //   const demoTokenInitKey = 'demo_token_initialized';
+  //   const demoTokenWasInitialized = localStorage.getItem(demoTokenInitKey);
+  //   const currentToken = this.tokenStorage.get();
+  //   if (!demoTokenWasInitialized && !currentToken.isValid()) {
+  //     // local storage is clear, let's setup demo user token for better demo experience
+  //     this.tokenStorage.set(this.authStrategy.createToken<NbAuthToken>(environment.testUser.token));
+  //     localStorage.setItem(demoTokenInitKey, 'true');
+  //   }
+  // }
 }

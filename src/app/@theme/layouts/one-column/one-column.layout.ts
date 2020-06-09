@@ -13,7 +13,7 @@ import { NbSidebarService } from '@nebular/theme';
   styleUrls: ['./one-column.layout.scss'],
   template: `
     <nb-layout windowMode>
-      <nb-layout-header fixed>
+      <nb-layout-header style="background-color: red;" fixed>
         <ngx-header></ngx-header>
       </nb-layout-header>
 

@@ -9,6 +9,7 @@ import { NewsComponent } from './news/news.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductComponent } from './product/product.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [{
     {
       path: 'news',
       component: NewsComponent
+    },
+    {
+      path: 'home',
+      component: HomePageComponent
     },
     {
       path: 'about-us',

@@ -34,6 +34,11 @@ export class PagesMenu {
         link: 'news',
       },
       {
+        title: 'Home',
+        icon: 'home-outline',
+        link: 'home',
+      },
+      {
         title: 'About us',
         icon: 'eye-outline',
         link: 'about-us'

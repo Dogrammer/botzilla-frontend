@@ -22,6 +22,7 @@ import { ProductComponent } from './product/product.component';
 import { CourseComponent } from './learn/course/course.component';
 import { LectionComponent } from './learn/lection/lection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -50,6 +51,7 @@ const PAGES_COMPONENTS = [
     AboutUsComponent,
     ContactUsComponent,
     ProductComponent,
+    HomePageComponent,
     // CourseComponent,
     // LectionComponent,
   ],

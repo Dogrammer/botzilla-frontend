@@ -70,8 +70,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-    if (this.router.url.includes('/pages/about-us')) {
+    // disable side menu for this routes..maybe not the best idea..
+    if (this.router.url.includes('/pages/about-us') 
+      || this.router.url.includes('/pages/home')
+      || this.router.url.includes('/pages/news') ) {
       this.aboutUrl = true;
     }
     console.log('url',this.router.url);
